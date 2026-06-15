@@ -1,0 +1,15 @@
+[theme]
+# The main accent color (Neon Leaf Green)
+primaryColor = "#26D769"
+
+# The absolute background color (Deep Forest Green) - This kills the black!
+backgroundColor = "#54996cff"
+
+# The background color for sidebars and input widgets (Slightly lighter green)
+secondaryBackgroundColor = "#6ca880ff"
+
+# The text color (Minty White)
+textColor = "#adb4aeff"
+
+# Font styling
+font = "sans serif"
