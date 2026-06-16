@@ -4,4 +4,5 @@ torchvision
 Pillow
 groq
 numpy
+opencv-python-headless
 python-dotenv
