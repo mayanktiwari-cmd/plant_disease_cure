@@ -1,7 +1,7 @@
 import os
 from groq import Groq
 
-# Load from a .env file when present (development only)
+# development only
 try:
     from dotenv import load_dotenv
     load_dotenv()
