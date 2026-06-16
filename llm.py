@@ -18,13 +18,13 @@ if not API_KEY:
 
 client = Groq(api_key=API_KEY)
 
-# =====================================
-# Disease Treatment Generator
-# =====================================
+
+#Treatment Generator
+
 
 def get_cure(plant, disease):
 
-    # Healthy Plant Case
+   
     if disease.lower() == "healthy":
         return """
  Plant Health Status: Healthy
