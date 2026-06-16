@@ -4,7 +4,7 @@ PlantDoc AI is an enterprise-grade agricultural diagnostic application designed 
 
 Most plant pathology models achieve near-perfect accuracy on clean, backlit datasets but fail entirely when farmers upload photos containing dirt, hands, or complex natural backgrounds. This system introduces a resilient 3-stage inference pipeline—combining **computer vision segmentation**, **deep learning classification**, **neural attention heatmaps**, and **generative LLM therapeutics**—to deliver reliable, actionable insights straight to the field.
 
-🔗 **[Live Project Demo Link](https://github.com/mayanktiwari-cmd)** *(Update with your production deployment URL)*
+🔗 **[Live Project Demo Link]([https://github.com/mayanktiwari-cmd](https://plantdiseasecure-ejaskrjnvnnfasfwxizw3u.streamlit.app/))** *(Update with your production deployment URL)*
 
 ---
 
