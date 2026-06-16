@@ -20,11 +20,11 @@ def load_model():
     model = models.resnet34(weights=None)
     in_features = model.fc.in_features
     model.fc = nn.Sequential(
-        nn.Linear(in_features, 256),
-        nn.BatchNorm1d(256),
+        nn.Linear(in_features, 512),
+        nn.BatchNorm1d(512),
         nn.ReLU(),
         nn.Dropout(0.5),
-        nn.Linear(256, 38)
+        nn.Linear(512, 38)
     )
     # map_location='cpu' ensures this runs fine even on a server/machine without a GPU
     model.load_state_dict(
