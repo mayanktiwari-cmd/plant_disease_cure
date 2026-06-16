@@ -9,11 +9,11 @@ import json
 import numpy as np
 import cv2
 
-# ── Class names ───────────────────────────────────────────────
+
 with open('class_names.json', 'r') as f:
     CLASS_NAMES = json.load(f)
 
-# ── Inference transform ───────────────────────────────────────
+
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -22,12 +22,12 @@ transform = transforms.Compose([
 ])
 
 
-# ═════════════════════════════════════════════════════════════
+
 #  LEAF SEGMENTATION
 #  Strategy: HSV-guided GrabCut → handles real field photos
 #  where background and leaf are both green.
 #  Falls back gracefully when segmentation is ambiguous.
-# ═════════════════════════════════════════════════════════════
+
 
 def _grabcut_with_rect(img_bgr):
     """Classic rectangle-based GrabCut. Works well on clean backgrounds."""
@@ -120,11 +120,11 @@ def segment_leaf(image_pil):
         return image_pil.resize((224, 224)), False
 
 
-# ═════════════════════════════════════════════════════════════
+
 #  GRAD-CAM
 #  Hooks into ResNet34's final conv block (layer4).
 #  Red = high attention, Blue = low attention.
-# ═════════════════════════════════════════════════════════════
+
 
 def generate_gradcam(image_pil, model):
     """
@@ -186,9 +186,9 @@ def generate_gradcam(image_pil, model):
     return Image.fromarray(overlay)
 
 
-# ═════════════════════════════════════════════════════════════
+
 #  MODEL LOADER
-# ═════════════════════════════════════════════════════════════
+
 
 def load_model():
     model       = models.resnet34(weights=None)
@@ -207,12 +207,12 @@ def load_model():
     return model
 
 
-# ═════════════════════════════════════════════════════════════
+
 #  PREDICT  —  full 3-stage pipeline
-#  Stage 1: Segment leaf (dual-strategy GrabCut)
-#  Stage 2: Classify on clean segmented leaf
+#  Stage 1:     Segment leaf (dual-strategy GrabCut)
+#  Stage 2:  Classify on clean segmented leaf
 #  Stage 3: Grad-CAM on segmented leaf
-# ═════════════════════════════════════════════════════════════
+
 
 def predict(image_pil, model):
     """
